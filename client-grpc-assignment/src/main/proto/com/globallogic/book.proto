@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_outer_classname = "book_proto";
+
+package com.globallogic.grpc;
+
+message AuthorInfo {
+  int32 id = 1;
+  string author_name = 2;
+  int32 age = 3;
+  int32 number_of_books_written = 4;
+}
+
+message Book {
+  int32 id = 1;
+  string book_title = 2;
+  int32 publishing_year = 3;
+  double ratings = 4;
+  double price = 5;
+  AuthorInfo author = 6;
+}

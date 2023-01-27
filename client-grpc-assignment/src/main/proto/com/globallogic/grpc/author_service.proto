@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.globallogic.grpc;
+
+import "com/globallogic/author.proto";
+import "google/protobuf/empty.proto";
+
+service AuthorService {
+  rpc createAuthor (CreateAuthorRequest) returns (CreateAuthorResponse);
+  rpc getAllAuthors (google.protobuf.Empty) returns (AuthorsResponse);
+  rpc getAuthorById (GetAuthorByIdRequest) returns (AuthorResponse);
+}
+
+message CreateAuthorRequest {
+  string author_name = 1;
+  int32 age = 2;
+  int32 number_of_books_written = 3;
+}
+
+message GetAuthorByIdRequest {
+  int32 id = 1;
+}
+
+message CreateAuthorResponse {
+  int32 id = 1;
+  string author_name = 2;
+  int32 age = 3;
+  int32 number_of_books_written = 4;
+}
+
+message AuthorsResponse {
+  repeated Author author = 1;
+}
+
+message AuthorResponse {
+  Author author = 1;
+}

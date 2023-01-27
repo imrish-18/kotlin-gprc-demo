@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_outer_classname = "user_proto";
+
+package com.globallogic.grpc;
+
+enum Gender {
+    MALE = 0;
+    FEMALE = 1;
+}
+
+message User {
+    int32 id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    Gender gender = 4;
+    string email = 5;
+    string contact = 6;
+    string password = 7;
+}

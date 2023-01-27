@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.globallogic.grpc;
+
+import "com/globallogic/book.proto";
+import "google/protobuf/empty.proto";
+
+service BookService {
+  rpc createBook (CreateBookRequest) returns (BookResponse);
+  rpc getAllBooks (google.protobuf.Empty) returns (BooksResponse);
+  rpc getBookById (GetBookByIdRequest) returns (BookResponse);
+  rpc searchBook (SearchBookRequest) returns (BooksResponse);
+}
+
+message CreateBookRequest {
+  string book_title = 1;
+  int32 publishing_year = 2;
+  double ratings = 3;
+  double price = 4;
+  int32 author_id = 5;
+}
+
+message GetBookByIdRequest {
+  int32 id = 1;
+}
+
+message SearchBookRequest {
+  string book_title = 1;
+  double ratings = 2;
+  int32 publishing_year = 3;
+}
+
+message BooksResponse {
+  repeated Book book = 1;
+}
+
+message BookResponse {
+  Book book = 1;
+}
