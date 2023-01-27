@@ -1,0 +1,118 @@
+2023-01-12 20:30:50,681 INFO com.globallogic.MainKt [main] Starting MainKt on del1-lhp-n80071 with PID 31488 (started by rishabh.kumar4 in D:\project setup\kotlin-spring-boot-grpc-20230104T102402Z-001)
+2023-01-12 20:30:50,683 DEBUG com.globallogic.MainKt [main] Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2023-01-12 20:30:50,683 INFO com.globallogic.MainKt [main] No active profile set, falling back to default profiles: default
+2023-01-12 20:30:51,174 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-12 20:30:51,175 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-12 20:30:51,231 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.AuthorRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:30:51,232 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.BookRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:30:51,234 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:30:51,234 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 54ms. Found 0 JDBC repository interfaces.
+2023-01-12 20:30:51,243 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-12 20:30:51,244 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-12 20:30:51,350 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 102ms. Found 3 JPA repository interfaces.
+2023-01-12 20:30:51,929 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-01-12 20:30:52,112 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-01-12 20:30:52,172 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-12 20:30:52,270 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.10.Final}
+2023-01-12 20:30:52,467 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-01-12 20:30:52,675 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-12 20:30:53,340 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-12 20:30:53,347 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-12 20:30:54,306 INFO com.globallogic.MainKt [main] Started MainKt in 3.98 seconds (JVM running for 4.463)
+2023-01-12 20:30:54,306 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] Starting gRPC Server ...
+2023-01-12 20:30:54,354 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.AuthorGrpcService' service has been registered.
+2023-01-12 20:30:54,360 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.BookGrpcService' service has been registered.
+2023-01-12 20:30:54,365 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.UserGrpcService' service has been registered.
+2023-01-12 20:30:54,560 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-12 20:30:54,565 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.globallogic.MainKt.main(Main.kt:9)
+Caused by: java.io.IOException: Failed to bind
+	at io.grpc.netty.NettyServer.start(NettyServer.java:247)
+	at io.grpc.internal.ServerImpl.start(ServerImpl.java:184)
+	at io.grpc.internal.ServerImpl.start(ServerImpl.java:90)
+	at org.lognet.springboot.grpc.GRpcServerRunner.run(GRpcServerRunner.java:92)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784)
+	... 5 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:134)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:550)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:504)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:489)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:248)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:348)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-01-12 20:30:54,567 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-12 20:30:54,567 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [main] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-01-12 20:30:54,568 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [main] HHH000478: Unsuccessful: drop table authors if exists
+2023-01-12 20:30:54,573 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2023-01-12 20:30:54,575 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2023-01-12 20:31:42,564 INFO com.globallogic.MainKt [main] Starting MainKt on del1-lhp-n80071 with PID 38236 (started by rishabh.kumar4 in D:\project setup\kotlin-spring-boot-grpc-20230104T102402Z-001)
+2023-01-12 20:31:42,565 DEBUG com.globallogic.MainKt [main] Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2023-01-12 20:31:42,566 INFO com.globallogic.MainKt [main] No active profile set, falling back to default profiles: default
+2023-01-12 20:31:43,041 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-12 20:31:43,042 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-12 20:31:43,100 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.AuthorRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:31:43,102 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.BookRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:31:43,103 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [main] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.globallogic.repository.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-12 20:31:43,104 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 57ms. Found 0 JDBC repository interfaces.
+2023-01-12 20:31:43,112 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-01-12 20:31:43,113 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-12 20:31:43,217 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 101ms. Found 3 JPA repository interfaces.
+2023-01-12 20:31:43,695 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-01-12 20:31:43,832 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-01-12 20:31:43,904 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-12 20:31:44,004 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.10.Final}
+2023-01-12 20:31:44,127 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2023-01-12 20:31:44,285 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-12 20:31:44,713 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-12 20:31:44,719 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-12 20:31:45,461 INFO com.globallogic.MainKt [main] Started MainKt in 3.265 seconds (JVM running for 3.893)
+2023-01-12 20:31:45,462 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] Starting gRPC Server ...
+2023-01-12 20:31:45,495 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.AuthorGrpcService' service has been registered.
+2023-01-12 20:31:45,502 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.BookGrpcService' service has been registered.
+2023-01-12 20:31:45,507 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] 'com.globallogic.grpc.UserGrpcService' service has been registered.
+2023-01-12 20:31:45,679 INFO org.lognet.springboot.grpc.GRpcServerRunner [main] gRPC Server started, listening on port 5678.
+2023-01-12 20:36:12,940 INFO com.globallogic.service.impl.UserServiceImpl [grpc-default-executor-0] [USERSVC] saving user details vk@gmail.com
+2023-01-12 20:36:17,595 ERROR io.grpc.internal.SerializingExecutor [grpc-default-executor-0] Exception while executing runnable io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed@7815a477
+java.lang.IllegalArgumentException: Not valid: Please provide a 10 digit numerical contact
+	at com.globallogic.validators.UserValidator.validateUserRequest(UserValidator.kt:41)
+	at com.globallogic.grpc.UserGrpcService.createUser(UserGrpcService.kt:25)
+	at com.globallogic.grpc.UserServiceGrpc$MethodHandlers.invoke(UserServiceGrpc.java:277)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:172)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at com.globallogic.interceptor.GrpcServerInterceptor$interceptCall$2.onHalfClose(GrpcServerInterceptor.kt:39)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:814)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-01-12 20:38:52,958 INFO org.lognet.springboot.grpc.GRpcServerRunner [SpringContextShutdownHook] Shutting down gRPC server ...
+2023-01-12 20:38:52,960 INFO org.lognet.springboot.grpc.GRpcServerRunner [SpringContextShutdownHook] gRPC server stopped.
+2023-01-12 20:38:52,960 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-12 20:38:52,961 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-01-12 20:38:52,968 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-01-12 20:38:52,969 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
